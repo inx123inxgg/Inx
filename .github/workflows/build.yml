@@ -20,13 +20,15 @@ jobs:
           java-version: '17'
 
       - name: Make gradlew executable
+        working-directory: Inx
         run: chmod +x ./gradlew
 
       - name: Build Debug APK
+        working-directory: Inx
         run: ./gradlew assembleDebug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: MyApp
-          path: app/build/outputs/apk/debug/*.apk
+          path: Inx/app/build/outputs/apk/debug/*.apk
