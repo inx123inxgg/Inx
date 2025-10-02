@@ -11,43 +11,36 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Repo checkout
       - name: Checkout Repo
         uses: actions/checkout@v3
 
-      # 2. Unzip your project
       - name: Unzip Project
         run: |
           unzip Android13AppFinal_ready.zip -d project
           ls -R project
 
-      # 3. Set up JDK 17
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
           java-version: '17'
 
-      # 4. Install Gradle
       - name: Install Gradle
         uses: gradle/gradle-build-action@v2
 
-      # 5. Generate Gradle Wrapper (with correct version 8.1.1)
+      # ⚡ Force Gradle wrapper with version 7.6.1
       - name: Generate Gradle Wrapper
         working-directory: project
-        run: gradle wrapper --gradle-version 8.1.1
+        run: gradle wrapper --gradle-version 7.6.1
 
-      # 6. Make gradlew executable
       - name: Make gradlew executable
         working-directory: project
         run: chmod +x ./gradlew
 
-      # 7. Build Debug APK
       - name: Build Debug APK
         working-directory: project
-        run: ./gradlew assembleDebug
+        run: ./gradlew assembleDebug --stacktrace --warning-mode all
 
-      # 8. Upload APK as artifact
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
