@@ -19,11 +19,8 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Install Gradle
-        uses: gradle/gradle-build-action@v3
-
-      - name: Generate Gradle Wrapper
-        run: gradle wrapper
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
 
       - name: Build Debug APK
         run: ./gradlew assembleDebug
