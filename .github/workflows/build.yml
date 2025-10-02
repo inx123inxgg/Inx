@@ -33,17 +33,17 @@ jobs:
 
       # 4. Generate Gradle Wrapper (.jar file)
       - name: Generate Gradle Wrapper
-        working-directory: project/Android13AppFinal_ready
+        working-directory: project
         run: gradle wrapper
 
       # 5. Make gradlew executable
       - name: Make gradlew executable
-        working-directory: project/Android13AppFinal_ready
+        working-directory: project
         run: chmod +x ./gradlew
 
       # 6. Build Debug APK
       - name: Build Debug APK
-        working-directory: project/Android13AppFinal_ready
+        working-directory: project
         run: ./gradlew assembleDebug
 
       # 7. Upload APK
@@ -51,4 +51,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: MyApp
-          path: project/Android13AppFinal_ready/app/build/outputs/apk/debug/*.apk
+          path: project/app/build/outputs/apk/debug/*.apk
