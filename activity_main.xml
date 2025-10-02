@@ -1,0 +1,40 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Auto Text"
+        android:textSize="24sp"
+        android:padding="10dp"/>
+
+    <EditText
+        android:id="@+id/customTextsInput"
+        android:layout_width="250dp"
+        android:layout_height="100dp"
+        android:hint="Enter texts (comma separated)"
+        android:gravity="top|start"
+        android:inputType="textMultiLine"/>
+
+    <EditText
+        android:id="@+id/delayInput"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:hint="Delay (seconds)"
+        android:inputType="number"
+        android:gravity="center"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Start"
+        android:layout_marginTop="20dp"/>
+</LinearLayout>
